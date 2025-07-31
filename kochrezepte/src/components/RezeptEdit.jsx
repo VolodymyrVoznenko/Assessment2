@@ -13,6 +13,9 @@ function RezeptEdit({ rezepte = [], kategorien = [], zutaten = [], rezeptZutaten
 
     const initialSchritteList = schritte.filter(s => rezept.schritteIds.includes(s.id));
 
+    const [bildUrl, setBildUrl] = useState(rezept.bildUrl || '');
+    const [bewertung, setBewertung] = useState(rezept.bewertung ?? 3);
+
     const [titel, setTitel] = useState(rezept.titel);
     const [beschreibung, setBeschreibung] = useState(rezept.beschreibung);
     const [kategorieId, setKategorieId] = useState(rezept.kategorieId);
@@ -57,6 +60,8 @@ function RezeptEdit({ rezepte = [], kategorien = [], zutaten = [], rezeptZutaten
             titel: titel.trim(),
             beschreibung: beschreibung.trim(),
             kategorieId,
+            bildUrl,
+            bewertung,
             schritteIds: stepsList.map(s => s.id),
             zutatenIds: zutatenList.map(z => z.zutatenId)
         };
@@ -93,6 +98,30 @@ function RezeptEdit({ rezepte = [], kategorien = [], zutaten = [], rezeptZutaten
                             <div className="select is-fullwidth">
                                 <select value={kategorieId} onChange={e => setKategorieId(e.target.value)}>
                                     {kategorien.map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label className="label">Bild-URL</label>
+                        <div className="control">
+                            <input
+                                className="input"
+                                type="text"
+                                placeholder="https://..."
+                                value={bildUrl}
+                                onChange={e => setBildUrl(e.target.value)}
+                            />
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label className="label">Bewertung</label>
+                        <div className="control">
+                            <div className="select">
+                                <select value={bewertung} onChange={e => setBewertung(Number(e.target.value))}>
+                                    {[1,2,3,4,5].map(n => (
+                                        <option key={n} value={n}>{n} Stern{n>1?'e':''}</option>
+                                    ))}
                                 </select>
                             </div>
                         </div>

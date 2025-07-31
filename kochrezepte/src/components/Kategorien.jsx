@@ -13,6 +13,8 @@ function Kategorien({ kategorien = [], rezepte = [] }) {
         return String(r.kategorieId) === String(selectedCategory);
     });
 
+    console.log(filteredRezepte);
+
     return (
         <section className="section">
             <div className="container">

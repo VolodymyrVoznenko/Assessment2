@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-function RezeptList({rezepte}) {
+
+function RezeptList({ rezepte }) {
     const [search, setSearch] = useState('');
 
     const filteredRezepte = rezepte.filter(r =>
@@ -29,9 +30,28 @@ function RezeptList({rezepte}) {
                 ) : (
                     <ul className="menu-list">
                         {filteredRezepte.map(r => (
-                            <li key={r.id}>
+                            <li key={r.id} className="mb-4">
                                 <Link to={`/rezepte/${r.id}`}>
-                                    {r.titel}
+                                    {r.bildUrl && (
+                                        <figure
+                                            className="image is-32x32 mr-2"
+                                            style={{ display: 'inline-block', verticalAlign: 'middle' }}
+                                        >
+                                            <img
+                                                className="is-rounded"
+                                                src={r.bildUrl}
+                                                alt={r.titel}
+                                            />
+                                        </figure>
+                                    )}
+                                    <span style={{ verticalAlign: 'middle' }}>
+                                        {r.titel}
+                                    </span>
+                                    {r.bewertung != null && (
+                                        <span className="tag is-warning ml-2" style={{ verticalAlign: 'middle' }}>
+                                            {r.bewertung}★
+                                        </span>
+                                    )}
                                 </Link>
                             </li>
                         ))}
