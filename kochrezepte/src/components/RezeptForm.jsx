@@ -101,7 +101,7 @@ function RezeptForm({ kategorien = [], zutaten = [], onSave }) {
                                 </div>
                             </div>
                             <div className="control">
-                                <input className="input" type="text" placeholder="Menge" value={currentMenge} onChange={e => setCurrentMenge(e.target.value)} />
+                                <input className="input" type="number" placeholder="Menge" value={currentMenge} onChange={e => setCurrentMenge(e.target.value)} />
                             </div>
                             <div className="control">
                                 <input className="input" type="text" placeholder="Einheit" value={currentEinheit} onChange={e => setCurrentEinheit(e.target.value)} />

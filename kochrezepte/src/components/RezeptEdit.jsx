@@ -139,7 +139,7 @@ function RezeptEdit({ rezepte = [], kategorien = [], zutaten = [], rezeptZutaten
                                 </div>
                             </div>
                             <div className="control">
-                                <input className="input" placeholder="Menge" value={menge} onChange={e => setMenge(e.target.value)} />
+                                <input className="input" type="number" placeholder="Menge" value={menge} onChange={e => setMenge(e.target.value)} />
                             </div>
                             <div className="control">
                                 <input className="input" placeholder="Einheit" value={einheit} onChange={e => setEinheit(e.target.value)} />
