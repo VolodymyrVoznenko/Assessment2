@@ -62,7 +62,7 @@ function RezeptDetail({
                     </p>
 
                     {rezept.bildUrl && (
-                        <figure className="image is-4by3 mb-4">
+                        <figure className="image mb-4">
                             <img src={rezept.bildUrl} alt={rezept.titel} />
                         </figure>
                     )}
