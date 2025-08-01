@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "bulma": "^1.0.4",
+    "react-router-dom": "^7.7.1"
+  }
+}
